@@ -1,37 +1,31 @@
 import {writeFile, access} from 'node:fs/promises';
 import path from 'node:path';
 
-class Creator {
-    constructor() {
-        this.path = path.join('src/fs/files/fresh.txt');
-        this.content = 'I am fresh and young'
-    }
+const create = async () => {
+    const filePath = path.join('src/fs/files/fresh.txt');
+    const content = 'I am fresh and young'
 
-    fileExists = async () => {
+    const isFileExists = async () => {
         try {
-            await access(this.path)
+            await access(filePath)
             return true
         } catch (err) {
             return false
         }
     }
 
-    create = async () => {
-        console.log(this.path)
-        this.fileExists().then(res => {
-            if (res) {
-                throw Error('FS operation failed')
-            } else {
-                writeFile(this.path, this.content)
-                console.log('File has been written')
-            }
-        }).catch(error => {
-            console.error(error)
-            }
-        )
-    };
+    isFileExists().then(res => {
+        if (res) {
+            throw Error('FS operation failed')
+        } else {
+            writeFile(filePath, content)
+            console.log('File has been written')
+        }
+    }).catch(error => {
+        console.error(error)
+        }
+    )
+    // Write your code here 
+};
 
-}
-
-const creator = new Creator()
-creator.create();
+await create();
