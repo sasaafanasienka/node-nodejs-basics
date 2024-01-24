@@ -1,27 +1,10 @@
-import {access, readdir, mkdir, stat, copyFile} from 'node:fs/promises';
+import {readdir, mkdir, stat, copyFile} from 'node:fs/promises';
 import path from 'node:path';
+import { isPathExists, isPathMissed } from '../helpers/helpers';
 
 const copy = async () => {
     const originPath = path.join('src/fs/files');
     const copyPath = path.join('src/fs/files_copy');
-
-    const isFilesExists = async () => {
-        try {
-            await access(originPath)
-            return true
-        } catch (err) {
-            return false
-        }
-    }
-    
-    const isCopyMissed = async () => {
-        try {
-            await access(copyPath)
-            return false
-        } catch (err) {
-            return true
-        }    
-    }
 
     const recursiveCopyFolder = async (copyPath, originPath) => {
         await mkdir(copyPath, { recursive: true })
@@ -41,7 +24,7 @@ const copy = async () => {
         })
     }
 
-    Promise.all([isCopyMissed(), isFilesExists()]).then(async (values) => {
+    Promise.all([isPathMissed(copyPath), isPathExists(originPath)]).then(async (values) => {
         if (values.includes(false)) {
             throw Error('FS operation failed')
         }

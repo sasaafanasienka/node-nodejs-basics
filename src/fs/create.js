@@ -1,20 +1,12 @@
-import {writeFile, access} from 'node:fs/promises';
+import {writeFile} from 'node:fs/promises';
 import path from 'node:path';
+import { isPathMissed } from '../helpers/helpers.js';
 
 const create = async () => {
     const filePath = path.join('src/fs/files/fresh.txt');
     const content = 'I am fresh and young'
 
-    const isFileMissed = async () => {
-        try {
-            await access(filePath)
-            return false
-        } catch (err) {
-            return true
-        }
-    }
-
-    isFileMissed().then(res => {
+    isPathMissed(filePath).then(res => {
         if (res) {
             writeFile(filePath, content)
             console.log('File has been written')
@@ -25,7 +17,6 @@ const create = async () => {
         console.error(error)
         }
     )
-    // Write your code here 
 };
 
 await create();
