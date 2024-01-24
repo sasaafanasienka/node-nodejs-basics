@@ -5,21 +5,21 @@ const create = async () => {
     const filePath = path.join('src/fs/files/fresh.txt');
     const content = 'I am fresh and young'
 
-    const isFileExists = async () => {
+    const isFileMissed = async () => {
         try {
             await access(filePath)
-            return true
-        } catch (err) {
             return false
+        } catch (err) {
+            return true
         }
     }
 
-    isFileExists().then(res => {
+    isFileMissed().then(res => {
         if (res) {
-            throw Error('FS operation failed')
-        } else {
             writeFile(filePath, content)
             console.log('File has been written')
+        } else {
+            throw Error('FS operation failed')
         }
     }).catch(error => {
         console.error(error)
