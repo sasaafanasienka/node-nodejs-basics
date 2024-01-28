@@ -24,23 +24,6 @@
     "wt": "node src/wt/main.js",
     "zip:compress": "node src/zip/compress.js",
     "zip:decompress": "node src/zip/decompress.js",
-    "nodemon-cli:args": "mon src/cli/args.js --some-arg value1 --other 1337 --arg2 42",
-    "nodemon-cli:env": "npx cross-env SOME=any RSS_foo=bar RSS_bar=baz node src/cli/env.js",
-    "nodemon-cp": "nodemon src/cp/cp.js",
-    "nodemon-fs:copy": "nodemon src/fs/copy.js",
-    "nodemon-fs:create": "nodemon src/fs/create.js",
-    "nodemon-fs:delete": "nodemon src/fs/delete.js",
-    "nodemon-fs:list": "nodemon src/fs/list.js",
-    "nodemon-fs:read": "mon src/fs/read.js",
-    "nodemon-fs:rename": "nodemon src/fs/rename.js",
-    "nodemon-hash": "nodemon src/hash/calcHash.js",
-    "nodemon-modules": "nodemon src/modules/esm.mjs",
-    "nodemon-streams:read": "nodemon src/streams/read.js",
-    "nodemon-streams:transform": "nodemon src/streams/transform.js",
-    "nodemon-streams:write": "nodemon src/streams/write.js",
-    "nodemon-wt": "nodemon src/wt/main.js",
-    "nodemon-zip:compress": "nodemon src/zip/compress.js",
-    "nodemon-zip:decompress": "nodemon src/zip/decompress.js"
   },
   "repository": {
     "type": "git",
@@ -57,7 +40,4 @@
     "url": "https://github.com/AlreadyBored/node-nodejs-basics/issues"
   },
   "homepage": "https://github.com/AlreadyBored/node-nodejs-basics#readme",
-  "dependencies": {
-    "nodemon": "^3.0.3"
-  }
 }
