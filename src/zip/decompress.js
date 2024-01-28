@@ -8,17 +8,8 @@ const decompress = async () => {
     const zipPath = path.join('src/zip/files/archive.gz');
 
     const readStream = createReadStream(zipPath)
-
-    // readStream.on('data', chunk => {
-    //     console.log('Chunk:', chunk)
-    // })
     const gunzip = createGunzip()
-
-    gunzip.on('data', chunk => {
-        console.log(chunk)
-    })
-
-    const writeStream = createWriteStream(zipPath)
+    const writeStream = createWriteStream(txtPath)
 
     pipeline(readStream, gunzip, writeStream, (err) => {
         if (err) {
