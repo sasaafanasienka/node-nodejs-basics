@@ -23,7 +23,7 @@
     "streams:write": "node src/streams/write.js",
     "wt": "node src/wt/main.js",
     "zip:compress": "node src/zip/compress.js",
-    "zip:decompress": "node src/zip/decompress.js",
+    "zip:decompress": "node src/zip/decompress.js"
   },
   "repository": {
     "type": "git",
@@ -39,5 +39,5 @@
   "bugs": {
     "url": "https://github.com/AlreadyBored/node-nodejs-basics/issues"
   },
-  "homepage": "https://github.com/AlreadyBored/node-nodejs-basics#readme",
+  "homepage": "https://github.com/AlreadyBored/node-nodejs-basics#readme"
 }
